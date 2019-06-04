@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="demoModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MyHoney">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ageaa" Type="nvarchar(max)" />
+    <Property Name="tnew" Type="nvarchar(max)" />
+    <Property Name="verify" Type="int" />
+    <Property Name="manid" Type="int" />
+  </EntityType>
+  <Association Name="FK_MyHoney_MyHoney">
+    <End Role="MyHoney" Type="Self.MyHoney" Multiplicity="0..1" />
+    <End Role="MyHoney1" Type="Self.MyHoney" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MyHoney">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MyHoney1">
+        <PropertyRef Name="manid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="demoModel1StoreContainer">
+    <EntitySet Name="MyHoney" EntityType="Self.MyHoney" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MyHoney_MyHoney" Association="Self.FK_MyHoney_MyHoney">
+      <End Role="MyHoney" EntitySet="MyHoney" />
+      <End Role="MyHoney1" EntitySet="MyHoney" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

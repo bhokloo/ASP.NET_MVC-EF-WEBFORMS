@@ -1,0 +1,41 @@
+﻿@model WebApplication1.Models.Employee
+
+@{
+    ViewBag.Title = "gitaa";
+}
+
+<h2>gitaa</h2>
+
+
+@using (Html.BeginForm()) 
+{
+
+        
+
+                @Html.LabelFor(model => model.ename)
+
+                @Html.EditorFor(model => model.ename)
+               
+
+               @Html.LabelFor(model => model.eaddress)
+
+                @Html.TextAreaFor(model => model.eaddress)
+              
+
+
+                @Html.LabelFor(model => model.ManagerId)
+                @Html.EditorFor(model => model.ManagerId)
+
+
+
+
+                <input type="submit" value="Create" class="btn btn-default" />
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

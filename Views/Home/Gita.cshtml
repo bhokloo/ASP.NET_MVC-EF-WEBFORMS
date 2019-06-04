@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication1.Models.Employee>
+
+@{
+    ViewBag.Title = "gita";
+}
+
+<h2>gita</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManagerId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ename)
+        </td>
+        <td>
+            @Html.Raw(item.eaddress)
+            @*@Html.DisplayFor(modelItem => item.eaddress)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManagerId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.eId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.eId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.eId })
+        </td>
+    </tr>
+}
+
+</table>

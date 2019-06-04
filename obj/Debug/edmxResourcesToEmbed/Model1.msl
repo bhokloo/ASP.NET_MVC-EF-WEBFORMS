@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="demoModelStoreContainer" CdmEntityContainer="demoEntities">
+    <EntitySetMapping Name="MyHoneys">
+      <EntityTypeMapping TypeName="demoModel.MyHoney">
+        <MappingFragment StoreEntitySet="MyHoney">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ageaa" ColumnName="ageaa" />
+          <ScalarProperty Name="tnew" ColumnName="tnew" />
+          <Condition ColumnName="verify" Value="1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

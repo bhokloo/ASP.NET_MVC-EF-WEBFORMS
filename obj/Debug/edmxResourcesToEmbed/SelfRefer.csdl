@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="demoModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MyHoney">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ageaa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tnew" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="verify" Type="Int32" />
+    <Property Name="manid" Type="Int32" />
+    <NavigationProperty Name="MyHoney1" Relationship="Self.FK_MyHoney_MyHoney" FromRole="MyHoney" ToRole="MyHoney1" />
+    <NavigationProperty Name="MyHoney2" Relationship="Self.FK_MyHoney_MyHoney" FromRole="MyHoney1" ToRole="MyHoney" />
+  </EntityType>
+  <Association Name="FK_MyHoney_MyHoney">
+    <End Role="MyHoney" Type="Self.MyHoney" Multiplicity="0..1" />
+    <End Role="MyHoney1" Type="Self.MyHoney" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MyHoney">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MyHoney1">
+        <PropertyRef Name="manid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="demoEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MyHoneys" EntityType="Self.MyHoney" />
+    <AssociationSet Name="FK_MyHoney_MyHoney" Association="Self.FK_MyHoney_MyHoney">
+      <End Role="MyHoney" EntitySet="MyHoneys" />
+      <End Role="MyHoney1" EntitySet="MyHoneys" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
